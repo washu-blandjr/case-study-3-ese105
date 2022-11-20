@@ -1,0 +1,50 @@
+x1 = [.01 .01 .01 .01 .01];
+x2 = [0 0 0 0 0];
+theta1 = [-pi/25 -pi/50 0 pi/50 pi/25];
+y = [0 0 0 0 0];
+theta2 = [0 0 0 0 0];
+Ray1 = [x1; theta1; y; theta2];
+Ray2 = [x2; theta1; y; theta2];
+
+d1 = .250;
+d2 = .375;
+f = .150;
+
+Md1 = [1 d1 0 0;
+       0 1  0 0;
+       0 0  1 d1;
+       0 0  0 1];
+
+Md2 = [1 d2 0 0;
+       0 1  0 0;
+       0 0  1 d2;
+       0 0  0 1];
+
+Mf = [1   0  0   0;
+     -1/f 1  0   0;
+      0   0  1   0;
+      0   0 -1/f 1];
+
+Z11 = Md1*Ray1;
+Z12 = Mf*Z11;
+Z13 = Md2*Z12;
+Z21 = Md1*Ray2;
+Z22 = Mf*Z21;
+Z23 = Md2*Z22;
+
+ray_z1 = [zeros(1,size(Ray1,2)); d1*ones(1,size(Ray1,2))];
+ray_z2 = [zeros(1,size(Ray2,2)); d1*ones(1,size(Ray2,2))];
+ray_z3 = [d1*ones(1,size(Ray1,2)); (d1+d2)*ones(1,size(Ray1,2))];
+ray_z4 = [d1*ones(1,size(Ray2,2)); (d1+d2)*ones(1,size(Ray2,2))];
+figure
+hold on
+plot1 = plot(ray_z1, [Ray1(1,:); Z11(1,:)]);
+plot2 = plot(ray_z2, [Ray2(1,:); Z21(1,:)]);
+plot3 = plot(ray_z3, [Z12(1,:); Z13(1,:)]);
+plot4 = plot(ray_z4, [Z22(1,:); Z23(1,:)]);
+hold off
+set(plot1,'color','r');
+set(plot2,'color','b');
+set(plot3,'color','r');
+set(plot4,'color','b');
+
