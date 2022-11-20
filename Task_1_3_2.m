@@ -21,7 +21,7 @@ figure;
 imshow(output5);
 
 %% #3 Propogation using $M_{d}$ 
-d = .3;
+d = 0.3;
 Md = [1 d 0 0;
       0 1 0 0;
       0 0 1 d;
@@ -32,7 +32,7 @@ figure;
 outputz1 = rays2img(rays_z(1,:),rays_z(3,:),.005,200); % control
 imshow(outputz1);
 
-d = .00003; % decrease dist
+d = 0.00003; % decrease dist
 Md = [1 d 0 0;
       0 1 0 0;
       0 0 1 d;
