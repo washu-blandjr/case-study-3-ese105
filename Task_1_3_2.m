@@ -9,16 +9,26 @@ load 'lightField.mat';
 [output3, x3, y3] = rays2img(rays(1,:),rays(3,:),.015,200);  % increase sensor width
 [output4, x4, y4] = rays2img(rays(1,:),rays(3,:),.005,100);  % decrease pixel #
 [output5, x5, y5] = rays2img(rays(1,:),rays(3,:),.005,500);  % increase pixel #
+
+[output6, x6, y6] = rays2img(rays(1,:),rays(3,:),.05,500);  % best pic#
+
 figure;
 imshow(output1);
+
 figure;
 imshow(output2);
+
 figure;
 imshow(output3);
+
 figure;
 imshow(output4);
+
 figure;
 imshow(output5);
+
+figure;
+imshow(output6);
 
 %% #3 Propogation using $M_{d}$ 
 d = 0.3;
