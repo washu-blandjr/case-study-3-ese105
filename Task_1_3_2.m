@@ -1,4 +1,4 @@
-load 'lightField.mat';
+ load 'lightField.mat';
 
 % TODO
 % -optimize code to run in a few lines
