@@ -1,7 +1,5 @@
  load 'lightField.mat';
 
-% TODO
-% -optimize code to run in a few lines
 %% #2 Manipulating camera sensor
 
 [output1, x1, y1] = rays2img(rays(1,:),rays(3,:),.005,200);  % control 
